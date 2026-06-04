@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import heroImage from "../assets/mpzkpz61-Rodoreda_ICEC.pdf.png";
 import dossierPdf from "../mpzkpz61-Rodoreda_ICEC.pdf";
 
@@ -121,6 +122,7 @@ function getRevealProps(reduceMotion, delay = 0, y = 28) {
 
 export default function App() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#sinopsis");
   const reduceMotion = useReducedMotion();
 
@@ -128,16 +130,17 @@ export default function App() {
   const sectionReveal = getRevealProps(reduceMotion);
   const delayedSectionReveal = getRevealProps(reduceMotion, 0.12);
   useEffect(() => {
-    document.body.style.overflow = isTrailerOpen ? "hidden" : "";
+    document.body.style.overflow = isTrailerOpen || isMenuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isTrailerOpen]);
+  }, [isMenuOpen, isTrailerOpen]);
 
   useEffect(() => {
     const handleKeydown = (event) => {
       if (event.key === "Escape") {
         setIsTrailerOpen(false);
+        setIsMenuOpen(false);
       }
     };
 
@@ -191,11 +194,75 @@ export default function App() {
               </a>
             ))}
           </nav>
+          <button
+            className="mobile-menu-toggle"
+            type="button"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            {isMenuOpen ? <X size={20} strokeWidth={1.8} /> : <Menu size={20} strokeWidth={1.8} />}
+          </button>
           <button className="btn btn-primary" type="button" onClick={() => setIsTrailerOpen(true)}>
             Ver avance
           </button>
         </div>
       </motion.header>
+
+      <AnimatePresence>
+        {isMenuOpen ? (
+          <motion.div
+            className="mobile-menu"
+            initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
+            transition={reduceMotion ? { duration: 0 } : { duration: 0.24, ease: "easeOut" }}
+          >
+            <motion.div
+              id="mobile-menu"
+              className="mobile-menu-panel"
+              initial={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -12 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { type: "spring", stiffness: 110, damping: 18, mass: 0.95 }
+              }
+            >
+              <nav className="mobile-menu-nav" aria-label="Navegación móvil">
+                {navItems.map(([href, label], index) => (
+                  <motion.a
+                    key={href}
+                    href={href}
+                    className={activeSection === href ? "is-active" : ""}
+                    onClick={() => setIsMenuOpen(false)}
+                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                    animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                    transition={reduceMotion ? undefined : { delay: 0.04 * index, duration: 0.34, ease: "easeOut" }}
+                  >
+                    {label}
+                  </motion.a>
+                ))}
+                <motion.button
+                  className="btn btn-primary mobile-menu-cta"
+                  type="button"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsTrailerOpen(true);
+                  }}
+                  initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                  animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  transition={reduceMotion ? undefined : { delay: 0.22, duration: 0.34, ease: "easeOut" }}
+                >
+                  Ver avance
+                </motion.button>
+              </nav>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       <main id="content">
         <section className="section hero" id="inicio" data-od-id="hero">

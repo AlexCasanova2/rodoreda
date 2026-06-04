@@ -106,10 +106,16 @@ function getRevealProps(reduceMotion, delay = 0, y = 28) {
   }
 
   return {
-    initial: { opacity: 0, y },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay },
+    initial: { opacity: 0, y, scale: 0.985 },
+    whileInView: { opacity: 1, y: 0, scale: 1 },
+    viewport: { once: true, amount: 0.18 },
+    transition: {
+      type: "spring",
+      stiffness: 52,
+      damping: 16,
+      mass: 1.05,
+      delay,
+    },
   };
 }
 
@@ -121,8 +127,6 @@ export default function App() {
   const heroReveal = getRevealProps(reduceMotion, 0.1, 36);
   const sectionReveal = getRevealProps(reduceMotion);
   const delayedSectionReveal = getRevealProps(reduceMotion, 0.12);
-  const cardReveal = getRevealProps(reduceMotion, 0, 20);
-
   useEffect(() => {
     document.body.style.overflow = isTrailerOpen ? "hidden" : "";
     return () => {
@@ -163,9 +167,18 @@ export default function App() {
       <motion.header
         className="topnav"
         data-od-id="topnav"
-        initial={reduceMotion ? false : { opacity: 0, y: -18 }}
+        initial={reduceMotion ? false : { opacity: 0, y: -20 }}
         animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-        transition={reduceMotion ? undefined : { duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={
+          reduceMotion
+            ? undefined
+            : {
+                type: "spring",
+                stiffness: 70,
+                damping: 18,
+                mass: 1,
+              }
+        }
       >
         <div className="container topnav-inner">
           <a className="logo" href="#inicio" aria-label="RODOREDA inicio">
@@ -190,18 +203,62 @@ export default function App() {
           <div className="hero-film" aria-hidden="true" />
           <div className="hero-shell">
             <div className="hero-content">
-              <motion.div className="hero-copy" {...heroReveal}>
+              <motion.div
+                className="hero-copy"
+                {...heroReveal}
+                animate={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        y: [0, -8, 0],
+                      }
+                }
+                transition={
+                  reduceMotion
+                    ? undefined
+                    : {
+                        y: {
+                          duration: 7.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        },
+                      }
+                }
+              >
                 <h1 className="hero-title">RODOREDA</h1>
-                <div className="hero-note">
+                <motion.div
+                  className="hero-note"
+                  initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+                  whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                  viewport={reduceMotion ? undefined : { once: true, amount: 0.3 }}
+                  transition={
+                    reduceMotion
+                      ? undefined
+                      : {
+                          type: "spring",
+                          stiffness: 48,
+                          damping: 16,
+                          mass: 1.1,
+                          delay: 0.18,
+                        }
+                  }
+                >
                   <p className="lead hero-lead">
                   Un viaje íntimo y revelador para descubrir a Mercè Rodoreda, la escritora más universal en lengua catalana, a través de archivo personal, testimonios y memoria viva.
                   </p>
-                  <div className="hero-cta">
-                    <button className="btn btn-primary" type="button" onClick={() => setIsTrailerOpen(true)}>
+                  <motion.div className="hero-cta" {...getRevealProps(reduceMotion, 0.28, 18)}>
+                    <motion.button
+                      className="btn btn-primary"
+                      type="button"
+                      onClick={() => setIsTrailerOpen(true)}
+                      whileHover={reduceMotion ? undefined : { y: -1.5, scale: 1.01 }}
+                      whileTap={reduceMotion ? undefined : { y: 0, scale: 0.99 }}
+                      transition={{ type: "spring", stiffness: 240, damping: 18 }}
+                    >
                       Ver avance
-                    </button>
-                  </div>
-                </div>
+                    </motion.button>
+                  </motion.div>
+                </motion.div>
               </motion.div>
             </div>
           </div>

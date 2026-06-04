@@ -188,23 +188,22 @@ export default function App() {
         <section className="section hero" id="inicio" data-od-id="hero">
           <img className="hero-image" src={heroImage} alt="Imagen de dossier del documental RODOREDA" />
           <div className="hero-film" aria-hidden="true" />
-          <div className="container hero-content">
-            <motion.div className="hero-copy" {...heroReveal}>
-              <h1 className="hero-title">RODOREDA</h1>
-              <div className="hero-note">
-                <p className="lead hero-lead">
-                Un viaje íntimo y revelador para descubrir a Mercè Rodoreda, la escritora más universal en lengua catalana, a través de archivo personal, testimonios y memoria viva.
-                </p>
-                <div className="hero-cta">
-                  <button className="btn btn-primary" type="button" onClick={() => setIsTrailerOpen(true)}>
-                    Ver avance
-                  </button>
-                  <a className="btn btn-secondary btn-arrow" href="#sinopsis">
-                    Entrar en el dossier
-                  </a>
+          <div className="hero-shell">
+            <div className="hero-content">
+              <motion.div className="hero-copy" {...heroReveal}>
+                <h1 className="hero-title">RODOREDA</h1>
+                <div className="hero-note">
+                  <p className="lead hero-lead">
+                  Un viaje íntimo y revelador para descubrir a Mercè Rodoreda, la escritora más universal en lengua catalana, a través de archivo personal, testimonios y memoria viva.
+                  </p>
+                  <div className="hero-cta">
+                    <button className="btn btn-primary" type="button" onClick={() => setIsTrailerOpen(true)}>
+                      Ver avance
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </section>
 

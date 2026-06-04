@@ -119,6 +119,9 @@ function HeroBeamsBackground() {
   const canvasRef = useRef(null);
   const frameRef = useRef(0);
   const beamsRef = useRef([]);
+  const boundsRef = useRef({ width: 0, height: 0 });
+  const visibleRef = useRef(true);
+  const lastFrameTimeRef = useRef(0);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -133,11 +136,14 @@ function HeroBeamsBackground() {
       return undefined;
     }
 
-    const beamCount = 18;
+    const beamCount = window.innerWidth < 768 ? 8 : 12;
+    const targetFrameDuration = 1000 / 30;
 
     const updateCanvasSize = () => {
       const bounds = parent.getBoundingClientRect();
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+
+      boundsRef.current = { width: bounds.width, height: bounds.height };
 
       canvas.width = bounds.width * dpr;
       canvas.height = bounds.height * dpr;
@@ -155,10 +161,10 @@ function HeroBeamsBackground() {
 
       beam.y = height + 120;
       beam.x = lane * spacing + spacing / 2 + (Math.random() - 0.5) * spacing * 0.55;
-      beam.width = 80 + Math.random() * 80;
+      beam.width = 64 + Math.random() * 54;
       beam.length = height * 1.9;
-      beam.speed = 0.28 + Math.random() * 0.34;
-      beam.opacity = 0.11 + Math.random() * 0.08;
+      beam.speed = 0.22 + Math.random() * 0.24;
+      beam.opacity = 0.08 + Math.random() * 0.06;
       beam.hue = 36 + Math.random() * 10;
       beam.pulse = Math.random() * Math.PI * 2;
     };
@@ -182,11 +188,23 @@ function HeroBeamsBackground() {
       ctx.restore();
     };
 
-    const animate = () => {
-      const bounds = parent.getBoundingClientRect();
+    const animate = (time) => {
+      if (!visibleRef.current) {
+        frameRef.current = window.requestAnimationFrame(animate);
+        return;
+      }
+
+      if (time - lastFrameTimeRef.current < targetFrameDuration) {
+        frameRef.current = window.requestAnimationFrame(animate);
+        return;
+      }
+
+      lastFrameTimeRef.current = time;
+
+      const bounds = boundsRef.current;
 
       ctx.clearRect(0, 0, bounds.width, bounds.height);
-      ctx.filter = "blur(34px)";
+      ctx.filter = "blur(22px)";
 
       beamsRef.current.forEach((beam, index) => {
         beam.y -= beam.speed;
@@ -199,18 +217,29 @@ function HeroBeamsBackground() {
         drawBeam(beam);
       });
 
+      ctx.filter = "none";
+
       frameRef.current = window.requestAnimationFrame(animate);
     };
 
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        visibleRef.current = entry?.isIntersecting ?? true;
+      },
+      { threshold: 0.05 },
+    );
+
     updateCanvasSize();
+    visibilityObserver.observe(parent);
 
     if (!reduceMotion) {
-      animate();
+      frameRef.current = window.requestAnimationFrame(animate);
     }
 
     window.addEventListener("resize", updateCanvasSize);
 
     return () => {
+      visibilityObserver.disconnect();
       window.removeEventListener("resize", updateCanvasSize);
       if (frameRef.current) {
         window.cancelAnimationFrame(frameRef.current);

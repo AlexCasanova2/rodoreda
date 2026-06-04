@@ -276,21 +276,21 @@ h1, h2, h3, h4 { text-wrap: balance; }
 
 .hero-beams {
   z-index: 2;
-  opacity: 0.9;
+  opacity: 0.72;
   mix-blend-mode: screen;
 }
 
 .hero-beams-glow {
   z-index: 2;
   background:
-    radial-gradient(circle at 72% 28%, rgba(220, 201, 164, 0.11), transparent 28%),
-    radial-gradient(circle at 30% 70%, rgba(220, 201, 164, 0.06), transparent 34%);
-  backdrop-filter: blur(42px);
+    radial-gradient(circle at 72% 28%, rgba(220, 201, 164, 0.08), transparent 24%),
+    radial-gradient(circle at 30% 70%, rgba(220, 201, 164, 0.045), transparent 30%);
+  backdrop-filter: blur(18px);
 }
 
 .hero-film {
   z-index: 2;
-  opacity: 0.1;
+  opacity: 0.06;
   background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 3px);
 }
 

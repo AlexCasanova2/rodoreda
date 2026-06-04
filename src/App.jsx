@@ -336,21 +336,19 @@ export default function App() {
           <div className="hero-film" aria-hidden="true" />
           <div className="container hero-content">
             <motion.div className="hero-copy" {...heroReveal}>
-              <p className="eyebrow">Largometraje documental · 90 min · VO catalán</p>
               <h1 className="hero-title">RODOREDA</h1>
-              <p className="subtitle">Un documental de Sílvia Munt.</p>
-            </motion.div>
-            <motion.div className="hero-note" {...getRevealProps(reduceMotion, 0.2, 40)}>
-              <p className="lead">
+              <div className="hero-note">
+                <p className="lead hero-lead">
                 Un viaje íntimo y revelador para descubrir a Mercè Rodoreda, la escritora más universal en lengua catalana, a través de archivo personal, testimonios y memoria viva.
-              </p>
-              <div className="hero-cta">
-                <button className="btn btn-primary" type="button" onClick={() => setIsTrailerOpen(true)}>
-                  Ver avance
-                </button>
-                <a className="btn btn-secondary btn-arrow" href="#sinopsis">
-                  Entrar en el dossier
-                </a>
+                </p>
+                <div className="hero-cta">
+                  <button className="btn btn-primary" type="button" onClick={() => setIsTrailerOpen(true)}>
+                    Ver avance
+                  </button>
+                  <a className="btn btn-secondary btn-arrow" href="#sinopsis">
+                    Entrar en el dossier
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>

@@ -6,9 +6,7 @@ import dossierPdf from "../mpzkpz61-Rodoreda_ICEC.pdf";
 
 const navItems = [
   ["#sinopsis", "Sinopsis"],
-  ["#mirada", "Mirada"],
   ["#personajes", "Personajes"],
-  ["#produccion", "Producción"],
   ["#contacto", "Contacto"],
 ];
 
@@ -64,35 +62,6 @@ const people = [
   ["Anna Mª Saludes", "Traductora y docente, especialista en Rodoreda en Florencia y Pisa.", "Exilio y traducción"],
   ["Marta Nadal", "Filóloga, crítica literaria y autora de trabajos sobre memoria, archivo y obra rodorediana.", "Archivo"],
   ["Quim Torra", "Autor de una biografía documentada de Armand Obiols, figura clave en la vida de Rodoreda.", "Obiols"],
-];
-
-const phases = [
-  {
-    title: "Preproducción",
-    items: [
-      ["Sep-Dic 2024", "Documentación y elaboración de guion."],
-      ["Ene-Mar 2025", "Reuniones de producción, dirección, arte y DOP."],
-      ["Abril 2025", "Localizaciones, lecturas y ensayos."],
-    ],
-  },
-  {
-    title: "Producción",
-    items: [
-      ["Mayo-Junio 2025", "Rodaje de cinco semanas."],
-      ["Septiembre-Octubre 2025", "Rodaje en Viena e IEC."],
-    ],
-  },
-  {
-    title: "Postproducción",
-    items: [
-      ["Finales de junio a octubre 2025", "Montaje y banda sonora original."],
-      ["Noviembre 2025", "Postproducción de imagen y sonido."],
-    ],
-  },
-  {
-    title: "Entrega",
-    items: [["Diciembre 2025", "Entrega del largometraje documental."]],
-  },
 ];
 
 const pressItems = [
@@ -353,21 +322,6 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="mirada" data-od-id="mirada">
-          <div className="container grid-1-2">
-            <motion.div className="stack direction-copy" {...sectionReveal}>
-              <p className="eyebrow">Nota de dirección</p>
-              <h2 className="direction-title">“Siempre he tenido la necesidad de entender y explicar a esta mujer única.”</h2>
-              <p className="copy-muted">Sílvia Munt plantea la película como el cierre de un círculo: pasar de interpretar a Colometa a reencontrarse con Rodoreda más de cuarenta años después, ya no como personaje, sino como presencia, archivo y pregunta.</p>
-              <p className="meta">Sílvia Munt · Directora y coguionista</p>
-            </motion.div>
-            <motion.div className="image-panel" aria-label="Tratamiento visual de archivo" {...delayedSectionReveal}>
-              <img src={heroImage} alt="Composición visual del dossier RODOREDA" />
-              <p className="caption meta">Archivo, cartas, fotografías y objetos filmados como materia emocional: macro, textura, sombra y silencio.</p>
-            </motion.div>
-          </div>
-        </section>
-
         <section className="section visual-bg" data-od-id="tratamiento-visual">
           <img src={heroImage} alt="Fondo oscurecido del dossier visual de RODOREDA" />
           <div className="container visual-content">
@@ -420,29 +374,6 @@ export default function App() {
                     <p>{description}</p>
                   </div>
                   <span className="meta">{role}</span>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="produccion" data-od-id="produccion">
-          <div className="container stack section-gap-lg">
-            <motion.div className="max-copy-wide" {...sectionReveal}>
-              <p className="eyebrow">Plan de producción</p>
-              <h2>Un calendario de archivo, rodaje y montaje.</h2>
-            </motion.div>
-            <div className="timeline">
-              {phases.map((phase, index) => (
-                <motion.article key={phase.title} className="phase" {...getRevealProps(reduceMotion, index * 0.08, 22)}>
-                  <h3>{phase.title}</h3>
-                  {phase.items.map(([date, text]) => (
-                    <p key={`${phase.title}-${date}`}>
-                      <strong>{date}</strong>
-                      <br />
-                      {text}
-                    </p>
-                  ))}
                 </motion.article>
               ))}
             </div>

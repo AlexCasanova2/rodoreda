@@ -252,24 +252,6 @@ export default function App() {
               <motion.div
                 className="hero-copy"
                 {...heroReveal}
-                animate={
-                  reduceMotion
-                    ? undefined
-                    : {
-                        y: [0, -8, 0],
-                      }
-                }
-                transition={
-                  reduceMotion
-                    ? undefined
-                    : {
-                        y: {
-                          duration: 7.5,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        },
-                      }
-                }
               >
                 <h1 className="hero-title">RODOREDA</h1>
                 <motion.div

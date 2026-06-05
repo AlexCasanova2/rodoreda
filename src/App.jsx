@@ -5,27 +5,27 @@ import heroImage from "../assets/mpzkpz61-Rodoreda_ICEC.pdf.png";
 import dossierPdf from "../mpzkpz61-Rodoreda_ICEC.pdf";
 
 const navItems = [
-  ["#sinopsis", "Sinopsis"],
-  ["#personajes", "Personajes"],
-  ["#contacto", "Contacto"],
+  ["#sinopsis", "Sinopsi"],
+  ["#personajes", "Personatges"],
+  ["#contacto", "Contacte"],
 ];
 
 const facts = [
   ["Título", "RODOREDA"],
-  ["Formato", "Largometraje"],
-  ["Género", "Documental"],
-  ["Público", "General"],
-  ["Duración", "90 min"],
-  ["Idioma VO", "Catalán"],
-  ["Imagen", "Digital 4K"],
-  ["Sonido", "Dolby Digital 5.1"],
+  ["Format", "Llargmetratge"],
+  ["Gènere", "Documental"],
+  ["Públic", "General"],
+  ["Durada", "90 min"],
+  ["Idioma VO", "Català"],
+  ["Imatge", "Digital 4K"],
+  ["So", "Dolby Digital 5.1"],
   ["Productora", "Benecé Produccions SL"],
 ];
 
 const features = [
   {
-    title: "Archivo personal",
-    text: "Cartas, dietarios, fotografías, radio y videografía como mapa de una vida intensa.",
+    title: "Arxiu personal",
+    text: "Cartes, dietaris, fotografies, ràdio i videografia com a mapa d'una vida intensa.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
         <path d="M4 7h16M4 12h10M4 17h16" />
@@ -33,8 +33,8 @@ const features = [
     ),
   },
   {
-    title: "Conversaciones íntimas",
-    text: "Biógrafas, estudiosas, lectoras y testigos explican los hechos históricos y literarios de su trayectoria.",
+    title: "Converses íntimes",
+    text: "Biògrafes, estudioses, lectores i testimonis expliquen els fets històrics i literaris de la seva trajectòria.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
         <circle cx="12" cy="12" r="8" />
@@ -43,8 +43,8 @@ const features = [
     ),
   },
   {
-    title: "La palabra de Mercè",
-    text: "Laura Conejero y Lluís Homar dan voz a pensamientos, emociones y cartas de Rodoreda y Armand Obiols.",
+    title: "La paraula de Mercè",
+    text: "Laura Conejero i Lluís Homar donen veu a pensaments, emocions i cartes de Rodoreda i Armand Obiols.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
         <path d="M12 3v18M3 12h18" />
@@ -54,20 +54,20 @@ const features = [
 ];
 
 const people = [
-  ["Sílvia Munt", "Conductora, directora y coguionista del documental. Fue escogida por Rodoreda para interpretar a Colometa.", "Mirada guía"],
-  ["Laura Conejero y Lluís Homar", "Transmisores de los pensamientos y sentimientos de Mercè Rodoreda y Armand Obiols.", "Voces interpretadas"],
-  ["Carme Arnau", "Historiadora de la literatura catalana y autora de estudios fundamentales sobre Rodoreda.", "Biografía"],
-  ["Marta Pessarrodona", "Poeta, narradora y crítica literaria; amiga de Mercè Rodoreda.", "Memoria literaria"],
-  ["Mercè Ibarz", "Escritora, periodista cultural e investigadora; autora de Mercè Rodoreda. Un retrat.", "Investigación"],
-  ["Anna Mª Saludes", "Traductora y docente, especialista en Rodoreda en Florencia y Pisa.", "Exilio y traducción"],
-  ["Marta Nadal", "Filóloga, crítica literaria y autora de trabajos sobre memoria, archivo y obra rodorediana.", "Archivo"],
-  ["Quim Torra", "Autor de una biografía documentada de Armand Obiols, figura clave en la vida de Rodoreda.", "Obiols"],
+  ["Sílvia Munt", "Conductora, directora i coguionista del documental. Va ser escollida per Rodoreda per interpretar la Colometa.", "Mirada guia"],
+  ["Laura Conejero i Lluís Homar", "Transmissors dels pensaments i sentiments de Mercè Rodoreda i Armand Obiols.", "Veus interpretades"],
+  ["Carme Arnau", "Historiadora de la literatura catalana i autora d'estudis fonamentals sobre Rodoreda.", "Biografia"],
+  ["Marta Pessarrodona", "Poeta, narradora i crítica literària; amiga de Mercè Rodoreda.", "Memòria literària"],
+  ["Mercè Ibarz", "Escriptora, periodista cultural i investigadora; autora de Mercè Rodoreda. Un retrat.", "Investigació"],
+  ["Anna Mª Saludes", "Traductora i docent, especialista en Rodoreda a Florència i Pisa.", "Exili i traducció"],
+  ["Marta Nadal", "Filòloga, crítica literària i autora de treballs sobre memòria, arxiu i obra rodorediana.", "Arxiu"],
+  ["Quim Torra", "Autor d'una biografia documentada d'Armand Obiols, figura clau en la vida de Rodoreda.", "Obiols"],
 ];
 
 const pressItems = [
-  ["Dossier", "RODOREDA · Proyecto documental", "Storyline, sinopsis, tratamiento visual, equipo, producción e historial de Benecé.", "PDF"],
-  ["Referencia", "Web documental de una sola página", "Estructura inspirada en navegación de sinopsis, trailer, participantes, prensa y contacto.", "Web"],
-  ["Tipografía", "ASVCodar LT Bold + Montserrat", "Títulos en mayúsculas con presencia de cartel; lectura limpia y sobria para textos largos.", "Local"],
+  ["Dossier", "RODOREDA · Projecte documental", "Storyline, sinopsi, tractament visual, equip, producció i historial de Benecé.", "PDF"],
+  ["Referència", "Web documental d'una sola pàgina", "Estructura inspirada en navegació de sinopsi, tràiler, participants, premsa i contacte.", "Web"],
+  ["Tipografia", "ASVCodar LT Bold + Montserrat", "Títols en majúscules amb presència de cartell; lectura neta i sòbria per a textos llargs.", "Local"],
 ];
 
 function getRevealProps(reduceMotion, delay = 0, y = 28) {
@@ -153,10 +153,10 @@ export default function App() {
         }
       >
         <div className="container topnav-inner">
-          <a className="logo" href="#inicio" aria-label="RODOREDA inicio">
+          <a className="logo" href="#inicio" aria-label="Inici de RODOREDA">
             RODOREDA
           </a>
-          <nav aria-label="Navegación principal">
+          <nav aria-label="Navegació principal">
             {navItems.map(([href, label]) => (
               <a key={href} href={href} className={activeSection === href ? "is-active" : ""}>
                 {label}
@@ -168,13 +168,13 @@ export default function App() {
             type="button"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={isMenuOpen ? "Tanca el menú" : "Obre el menú"}
             onClick={() => setIsMenuOpen((open) => !open)}
           >
             {isMenuOpen ? <X size={20} strokeWidth={1.8} /> : <Menu size={20} strokeWidth={1.8} />}
           </button>
           <button className="btn btn-primary" type="button" onClick={() => setIsTrailerOpen(true)}>
-            Ver avance
+            Veure avançament
           </button>
         </div>
       </motion.header>
@@ -200,7 +200,7 @@ export default function App() {
                   : { type: "spring", stiffness: 110, damping: 18, mass: 0.95 }
               }
             >
-              <nav className="mobile-menu-nav" aria-label="Navegación móvil">
+              <nav className="mobile-menu-nav" aria-label="Navegació mòbil">
                 {navItems.map(([href, label], index) => (
                   <motion.a
                     key={href}
@@ -225,7 +225,7 @@ export default function App() {
                   animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
                   transition={reduceMotion ? undefined : { delay: 0.22, duration: 0.34, ease: "easeOut" }}
                 >
-                  Ver avance
+                  Veure avançament
                 </motion.button>
               </nav>
             </motion.div>
@@ -235,7 +235,7 @@ export default function App() {
 
       <main id="content">
         <section className="section hero" id="inicio" data-od-id="hero">
-          <img className="hero-image" src={heroImage} alt="Imagen de dossier del documental RODOREDA" />
+          <img className="hero-image" src={heroImage} alt="Imatge del dossier del documental RODOREDA" />
           <div className="hero-film" aria-hidden="true" />
           <div className="hero-shell">
             <div className="hero-content">
@@ -280,7 +280,7 @@ export default function App() {
                   }
                 >
                   <p className="lead hero-lead">
-                  Un viaje íntimo y revelador para descubrir a Mercè Rodoreda, la escritora más universal en lengua catalana, a través de archivo personal, testimonios y memoria viva.
+                  Un viatge íntim i revelador per descobrir Mercè Rodoreda, l'escriptora més universal en llengua catalana, a través d'arxiu personal, testimonis i memòria viva.
                   </p>
                   <motion.div className="hero-cta" {...getRevealProps(reduceMotion, 0.28, 18)}>
                     <motion.button
@@ -291,7 +291,7 @@ export default function App() {
                       whileTap={reduceMotion ? undefined : { y: 0, scale: 0.99 }}
                       transition={{ type: "spring", stiffness: 240, damping: 18 }}
                     >
-                      Ver avance
+                      Veure avançament
                     </motion.button>
                   </motion.div>
                 </motion.div>
@@ -303,15 +303,15 @@ export default function App() {
         <section className="section" id="sinopsis" data-od-id="sinopsis">
           <div className="container grid-2-1">
             <motion.div className="stack" {...sectionReveal}>
-              <p className="eyebrow">Storyline · Sinopsis</p>
-              <h2>Buscar la mujer detrás de la máscara.</h2>
+              <p className="eyebrow">Storyline · Sinopsi</p>
+              <h2>Buscar la dona darrere la màscara.</h2>
               <div className="intro-copy">
-                <p>Sílvia Munt, marcada por su complicidad con Rodoreda desde el rodaje de <em>La plaça del Diamant</em>, guía este documental para entrar en la vida, los pensamientos, la mirada, las contradicciones, los amores y la palabra de una escritora única.</p>
-                <p>Con la colaboración de la Fundació Mercè Rodoreda, el film accede a fotografías, manuscritos, cartas y dietarios para dibujar el mapa de una vida atravesada por la guerra, el exilio, la maternidad, el feminismo, la supervivencia y la incomprensión.</p>
-                <p>Rodoreda empezó a escribir por pura desesperación. A través del archivo personal y de testimonios de biógrafas y lectoras, la película recorre también la historia de Cataluña y Europa durante el siglo XX.</p>
+                <p>Sílvia Munt, marcada per la seva complicitat amb Rodoreda des del rodatge de <em>La plaça del Diamant</em>, guia aquest documental per entrar en la vida, els pensaments, la mirada, les contradiccions, els amors i la paraula d'una escriptora única.</p>
+                <p>Amb la col·laboració de la Fundació Mercè Rodoreda, el film accedeix a fotografies, manuscrits, cartes i dietaris per dibuixar el mapa d'una vida travessada per la guerra, l'exili, la maternitat, el feminisme, la supervivència i la incomprensió.</p>
+                <p>Rodoreda va començar a escriure per pura desesperació. A través de l'arxiu personal i dels testimonis de biògrafes i lectores, la pel·lícula recorre també la història de Catalunya i Europa durant el segle XX.</p>
               </div>
             </motion.div>
-            <motion.aside className="card facts" aria-label="Ficha del proyecto" {...delayedSectionReveal}>
+            <motion.aside className="card facts" aria-label="Fitxa del projecte" {...delayedSectionReveal}>
               {facts.map(([label, value]) => (
                 <div key={label} className="fact">
                   <strong>{label}</strong>
@@ -323,12 +323,12 @@ export default function App() {
         </section>
 
         <section className="section visual-bg" data-od-id="tratamiento-visual">
-          <img src={heroImage} alt="Fondo oscurecido del dossier visual de RODOREDA" />
+          <img src={heroImage} alt="Fons enfosquit del dossier visual de RODOREDA" />
           <div className="container visual-content">
             <motion.div className="visual-intro" {...sectionReveal}>
-              <p className="eyebrow">Tratamiento visual</p>
-              <h2>La importancia del objeto como puerta a un mundo íntimo.</h2>
-              <p className="lead visual-lead">El material de archivo se dispone sobre la mesa y se filma con planos detalle: fotografías, cartas, grafología, objetos personales. El objetivo no es ilustrar una biografía, sino atrapar la emoción que desprenden sus huellas.</p>
+              <p className="eyebrow">Tractament visual</p>
+              <h2>La importància de l'objecte com a porta a un món íntim.</h2>
+              <p className="lead visual-lead">El material d'arxiu es disposa sobre la taula i es filma amb plans de detall: fotografies, cartes, grafologia, objectes personals. L'objectiu no és il·lustrar una biografia, sinó atrapar l'emoció que desprenen les seves petjades.</p>
             </motion.div>
             <div className="grid-3 visual-features">
               {features.map((feature, index) => (
@@ -346,13 +346,13 @@ export default function App() {
           <div className="container grid-2">
             <motion.div {...sectionReveal}>
               <div className="quote-mark">“</div>
-              <blockquote className="quote">La vida privada de Mercè Rodoreda es uno de los misterios mejor guardados de la muy misteriosa ciudad de Barcelona.</blockquote>
+              <blockquote className="quote">La vida privada de Mercè Rodoreda és un dels misteris més ben guardats de la molt misteriosa ciutat de Barcelona.</blockquote>
               <p className="quote-author">Gabriel García Márquez · <em>El País</em></p>
             </motion.div>
             <motion.div className="stack quote-copy" {...delayedSectionReveal}>
-              <p>El documental asume ese misterio sin clausurarlo. Busca claves: el desarraigo, el doble exilio, la relación con Armand Obiols, la ferocidad de la escritura y la forma en que una obra literaria puede sobrevivir a todo.</p>
+              <p>El documental assumeix aquest misteri sense clausurar-lo. Cerca claus: el desarrelament, el doble exili, la relació amb Armand Obiols, la ferocitat de l'escriptura i la manera com una obra literària pot sobreviure a tot.</p>
               <hr className="rule-strong" />
-              <p className="meta">La plaça del Diamant fue traducida a más de 40 idiomas.</p>
+              <p className="meta">La plaça del Diamant va ser traduïda a més de 40 idiomes.</p>
             </motion.div>
           </div>
         </section>
@@ -361,10 +361,10 @@ export default function App() {
           <div className="container stack section-gap-lg">
             <motion.div className="row-between" {...sectionReveal}>
               <div className="max-copy">
-                <p className="eyebrow">Personajes</p>
-                <h2>Voces para reconstruir una presencia.</h2>
+                <p className="eyebrow">Personatges</p>
+                <h2>Veus per reconstruir una presència.</h2>
               </div>
-              <span className="pill">Actrices · Expertas · Lectores</span>
+              <span className="pill">Actrius · Expertes · Lectors</span>
             </motion.div>
             <div className="people-grid">
               {people.map(([name, description, role], index) => (
@@ -383,9 +383,9 @@ export default function App() {
         <section className="section" data-od-id="prensa">
           <div className="container">
             <motion.div className="row-between section-margin-md" {...sectionReveal}>
-              <h2>Material de prensa</h2>
+              <h2>Material de premsa</h2>
               <a className="btn btn-ghost btn-arrow" href={dossierPdf} target="_blank" rel="noreferrer">
-                Abrir dossier PDF
+                Obrir dossier PDF
               </a>
             </motion.div>
             <div className="press-list">
@@ -406,9 +406,9 @@ export default function App() {
         <section className="section" id="contacto" data-od-id="contacto">
           <div className="container contact-card">
             <motion.div {...sectionReveal}>
-              <p className="eyebrow">Contacto</p>
+              <p className="eyebrow">Contacte</p>
               <h2>Benecé Produccions SL</h2>
-              <p className="lead contact-lead">Una productora con trayectoria en documental, ficción, televisión, publicidad y comunicación audiovisual desde 1986.</p>
+              <p className="lead contact-lead">Una productora amb trajectòria en documental, ficció, televisió, publicitat i comunicació audiovisual des de 1986.</p>
             </motion.div>
             <motion.div className="card stack" {...delayedSectionReveal}>
               <p>
@@ -424,7 +424,7 @@ export default function App() {
               <div>
                 <span className="tag">Documental</span>
                 <span className="tag">Digital 4K</span>
-                <span className="tag">Catalán VO</span>
+                <span className="tag">Català VO</span>
                 <span className="tag">90 min</span>
               </div>
             </motion.div>
@@ -466,11 +466,11 @@ export default function App() {
               <div className="modal-head">
                 <div>
                   <p className="eyebrow modal-eyebrow" id="trailer-title">
-                    Avance
+                    Avançament
                   </p>
-                  <p className="meta modal-meta">Espacio reservado para trailer oficial</p>
+                  <p className="meta modal-meta">Espai reservat per al tràiler oficial</p>
                 </div>
-                <button className="close" type="button" aria-label="Cerrar trailer" onClick={() => setIsTrailerOpen(false)}>
+                <button className="close" type="button" aria-label="Tanca el tràiler" onClick={() => setIsTrailerOpen(false)}>
                   ×
                 </button>
               </div>

@@ -64,6 +64,16 @@ const people = [
   ["Quim Torra", "Autor d'una biografia documentada d'Armand Obiols, figura clau en la vida de Rodoreda.", "Obiols"],
 ];
 
+function getInitials(name) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+}
+
 const pressItems = [
   ["Dossier", "RODOREDA · Projecte documental", "Storyline, sinopsi, tractament visual, equip, producció i historial de Benecé.", "PDF"],
   ["Referència", "Web documental d'una sola pàgina", "Estructura inspirada en navegació de sinopsi, tràiler, participants, premsa i contacte.", "Web"],
@@ -370,6 +380,9 @@ export default function App() {
               {people.map(([name, description, role], index) => (
                 <motion.article key={name} className="person" {...getRevealProps(reduceMotion, index * 0.05, 20)}>
                   <div>
+                    <div className="person-visual" aria-hidden="true">
+                      <span className="person-initials">{getInitials(name)}</span>
+                    </div>
                     <h3>{name}</h3>
                     <p>{description}</p>
                   </div>
